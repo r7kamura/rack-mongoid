@@ -11,7 +11,7 @@ module Rack
 
       def router
         @router ||= Rack::Multiplexer.new do
-          get "/:resource_type/:id", Controller
+          get "/:resource_type/:id", Controllers::ShowController
         end
       end
     end

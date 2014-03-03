@@ -1,6 +1,6 @@
 module Rack
   module MongoidAdapter
-    class Controller
+    class Base
       class << self
         def call(env)
           new(env).call
