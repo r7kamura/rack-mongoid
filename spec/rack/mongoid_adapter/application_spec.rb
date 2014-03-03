@@ -24,7 +24,7 @@ describe Rack::MongoidAdapter::Application do
   end
 
   let(:connection) do
-    mock
+    double
   end
 
   let(:session_table) do
@@ -37,12 +37,13 @@ describe Rack::MongoidAdapter::Application do
 
   describe "#call" do
     before do
-      #connection.should_receive(:find).with(id)
+      connection.should_receive(:find).with(id).and_return(_id: id)
     end
 
     it "behaves like a rack application" do
       get "/recipes/#{id}", params, env
       response.status.should == 200
+      response.body.should be_json_as(_id: id)
     end
   end
 end
