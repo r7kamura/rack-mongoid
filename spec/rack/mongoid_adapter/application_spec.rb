@@ -35,15 +35,23 @@ describe Rack::MongoidAdapter::Application do
     "dummy"
   end
 
-  describe "#call" do
-    before do
-      connection.should_receive(:find).with(id).and_return(_id: id)
-    end
+  let(:resource) do
+    { _id: id }
+  end
 
-    it "behaves like a rack application" do
-      get "/recipes/#{id}", params, env
-      response.status.should == 200
-      response.body.should be_json_as(_id: id)
+  describe "#call" do
+    context "with GET /:resource_type/:id" do
+      before do
+        connection.stub(:find) do |id|
+          [resource]
+        end
+      end
+
+      it "behaves like a rack application" do
+        get "/recipes/#{id}", params, env
+        response.status.should == 200
+        response.body.should be_json_as(_id: id)
+      end
     end
   end
 end

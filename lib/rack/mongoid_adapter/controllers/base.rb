@@ -43,6 +43,10 @@ module Rack
         def resource_type
           request.params["resource_type"]
         end
+
+        def connection
+          ::Mongoid.default_session[resource_type]
+        end
       end
     end
   end

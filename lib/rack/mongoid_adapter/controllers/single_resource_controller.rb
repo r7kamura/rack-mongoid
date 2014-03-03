@@ -9,7 +9,7 @@ module Rack
         end
 
         def find_resource
-          ::Mongoid.default_session[resource_type].find(id)
+          connection.find(id).first
         end
       end
     end
