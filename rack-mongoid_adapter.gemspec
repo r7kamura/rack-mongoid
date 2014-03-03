@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Rack::MongoidAdapter::VERSION
   spec.authors       = ["Ryo Nakamura"]
   spec.email         = ["r7kamura@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = "A rack application working as an adapter for Mongoid"
+  spec.homepage      = "https://github.com/r7kamura/rack-mongoid_adapter"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
