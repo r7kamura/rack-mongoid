@@ -43,10 +43,6 @@ module Rack
         def resource_type
           request.params["resource_type"]
         end
-
-        def id
-          request.params["id"]
-        end
       end
     end
   end

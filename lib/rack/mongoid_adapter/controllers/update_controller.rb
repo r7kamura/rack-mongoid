@@ -1,7 +1,7 @@
 module Rack
   module MongoidAdapter
     module Controllers
-      class UpdateController < Base
+      class UpdateController < SingleResourceController
       end
     end
   end

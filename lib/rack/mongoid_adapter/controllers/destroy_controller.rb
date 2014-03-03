@@ -1,7 +1,7 @@
 module Rack
   module MongoidAdapter
     module Controllers
-      class DestroyController < Base
+      class DestroyController < SingleResourceController
       end
     end
   end
