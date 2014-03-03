@@ -1,7 +1,9 @@
 require "rack/mongoid_adapter/version"
 
 module Rack
-  module MongoidAdapter
-    # Your code goes here...
+  class MongoidAdapter
+    def call(env)
+      [200, {}, ["OK"]]
+    end
   end
 end
