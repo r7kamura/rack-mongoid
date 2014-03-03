@@ -1,9 +1,4 @@
-require "rack/mongoid_adapter/version"
+require "mongoid"
 
-module Rack
-  class MongoidAdapter
-    def call(env)
-      [200, {}, ["OK"]]
-    end
-  end
-end
+require "rack/mongoid_adapter/application"
+require "rack/mongoid_adapter/version"
