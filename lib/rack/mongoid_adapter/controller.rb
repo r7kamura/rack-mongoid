@@ -1,6 +1,12 @@
 module Rack
   module MongoidAdapter
     class Controller
+      class << self
+        def call(env)
+          new(env).call
+        end
+      end
+
       attr_reader :env
 
       def initialize(env)
