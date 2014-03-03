@@ -37,7 +37,7 @@ describe Rack::MongoidAdapter::Application do
 
   describe "#call" do
     before do
-      connection.should_receive(:find).with(id)
+      #connection.should_receive(:find).with(id)
     end
 
     it "behaves like a rack application" do

@@ -2,7 +2,7 @@ module Rack
   module MongoidAdapter
     class Application
       def call(env)
-        [200, {}, ["OK"]]
+        Controller.new(env).call
       end
     end
   end
