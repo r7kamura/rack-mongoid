@@ -12,6 +12,10 @@ require "rack/mongoid_adapter/version"
 
 module Rack
   class MongoidAdapter
+    def initialize(app = nil)
+      @app = app
+    end
+
     def call(env)
       router.call(env)
     end
@@ -19,7 +23,7 @@ module Rack
     private
 
     def router
-      @router ||= Rack::Multiplexer.new do
+      @router ||= Rack::Multiplexer.new(@app) do
         get "/:resource_type", Controllers::IndexController
         get "/:resource_type/:id", Controllers::ShowController
         post "/:resource_type", Controllers::CreateController
