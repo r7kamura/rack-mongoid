@@ -1,5 +1,5 @@
 # Rack::MongoidAdapter
-Provides RESTful interface as a rack application, wrapping MongoDB.
+Provides RESTful interface for MongoDB as a rack application.
 
 ## Usage
 ```ruby
