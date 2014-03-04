@@ -128,4 +128,21 @@ describe Rack::MongoidAdapter do
       end
     end
   end
+
+  describe "DELETE /:resource_type/:id" do
+    let(:method) do
+      :delete
+    end
+
+    let(:path) do
+      "/#{resource_type}/#{id}"
+    end
+
+    context "with valid condition" do
+      it "returns 204" do
+        should == 204
+        response.body.should be_empty
+      end
+    end
+  end
 end
