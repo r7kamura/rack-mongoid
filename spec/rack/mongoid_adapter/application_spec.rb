@@ -5,6 +5,12 @@ describe Rack::MongoidAdapter::Application do
 
   before do
     Mongoid.stub(default_session: session_table)
+    connection.stub(find: [resource])
+  end
+
+  subject do
+    send method, path, params, env
+    response.status
   end
 
   let(:app) do
@@ -39,9 +45,25 @@ describe Rack::MongoidAdapter::Application do
     { _id: id }
   end
 
-  subject do
-    send method, path, params, env
-    response.status
+  let(:resource_type) do
+    "recipes"
+  end
+
+  describe "GET /:resource_type" do
+    let(:method) do
+      :get
+    end
+
+    let(:path) do
+      "/#{resource_type}"
+    end
+
+
+    context "with valid condition" do
+      it "returns 200 with an array of resources" do
+        should == 200
+      end
+    end
   end
 
   describe "GET /:resource_type/:id" do
@@ -53,13 +75,9 @@ describe Rack::MongoidAdapter::Application do
       "/#{resource_type}/#{id}"
     end
 
-    let(:resource_type) do
-      "recipes"
-    end
-
     context "when resource is not found" do
-      before do
-        connection.stub(find: [])
+      let(:resource) do
+        nil
       end
 
       it "returns 404" do
@@ -69,11 +87,7 @@ describe Rack::MongoidAdapter::Application do
     end
 
     context "with valid condition" do
-      before do
-        connection.stub(find: [resource])
-      end
-
-      it "behaves like a rack application" do
+      it "returns 200 with a resource" do
         should == 200
         response.body.should be_json_as(_id: id)
       end
