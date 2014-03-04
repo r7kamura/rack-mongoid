@@ -1,7 +1,7 @@
 require "rack-multiplexer"
 
 module Rack
-  module MongoidAdapter
+  class MongoidAdapter
     class Application
       def call(env)
         router.call(env)

@@ -1,5 +1,5 @@
 module Rack
-  module MongoidAdapter
+  class MongoidAdapter
     module Controllers
       class ShowController < SingleResourceController
         include Mem

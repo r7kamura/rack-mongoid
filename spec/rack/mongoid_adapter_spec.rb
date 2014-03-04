@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Rack::MongoidAdapter::Application do
+describe Rack::MongoidAdapter do
   include Rack::Test::Methods
 
   subject do
