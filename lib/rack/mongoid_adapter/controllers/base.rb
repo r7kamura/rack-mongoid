@@ -32,6 +32,10 @@ module Rack
           raise NotImplementedError
         end
 
+        def response_body_for_not_found
+          { message: "Not found" }.to_json
+        end
+
         def request
           @request ||= Rack::Request.new(env)
         end

@@ -1,3 +1,4 @@
+require "mem"
 require "mongoid"
 
 require "rack/mongoid_adapter/application"

@@ -39,17 +39,44 @@ describe Rack::MongoidAdapter::Application do
     { _id: id }
   end
 
+  subject do
+    send method, path, params, env
+    response.status
+  end
+
   describe "GET /:resource_type/:id" do
-    before do
-      connection.stub(:find) do |id|
-        [resource]
+    let(:method) do
+      :get
+    end
+
+    let(:path) do
+      "/#{resource_type}/#{id}"
+    end
+
+    let(:resource_type) do
+      "recipes"
+    end
+
+    context "when resource is not found" do
+      before do
+        connection.stub(find: [])
+      end
+
+      it "returns 404" do
+        should == 404
+        response.body.should be_json
       end
     end
 
-    it "behaves like a rack application" do
-      get "/recipes/#{id}", params, env
-      response.status.should == 200
-      response.body.should be_json_as(_id: id)
+    context "with valid condition" do
+      before do
+        connection.stub(find: [resource])
+      end
+
+      it "behaves like a rack application" do
+        should == 200
+        response.body.should be_json_as(_id: id)
+      end
     end
   end
 end
