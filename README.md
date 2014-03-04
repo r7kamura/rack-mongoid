@@ -15,13 +15,13 @@ rackup
 ```
 
 ## API
-| Name    | Verb   | Path        | MongoDB                                 |
-| ---     | ---    | ---         | ---                                     |
-| Index   | GET    | /foobar     | db.foobar.find                          |
-| Show    | GET    | /foobar/:id | db.foobar.find(_id: id)                 |
-| Create  | POST   | /foobar     | db.foobar.insert(params)                |
-| Update  | PUT    | /foobar/:id | db.foobar.update(_id: id, $set: params) |
-| Destroy | DELETE | /foobar/:id | db.foobar.remove(_id: id)               |
+| Name    | Verb   | Path        | MongoDB                                                       |
+| ---     | ---    | ---         | ---                                                           |
+| Index   | GET    | /foobar     | db.foobar.find                                                |
+| Show    | GET    | /foobar/:id | db.foobar.find(_id: id)                                       |
+| Create  | POST   | /foobar     | db.foobar.insert(request.params["attributes"])                |
+| Update  | PUT    | /foobar/:id | db.foobar.update(_id: id, $set: request.params["attributes"]) |
+| Destroy | DELETE | /foobar/:id | db.foobar.remove(_id: id)                                     |
 
 ## Development
 ```sh
