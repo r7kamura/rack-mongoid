@@ -9,7 +9,7 @@ module Rack
         end
 
         def find_resource
-          connection.find(id).first
+          connection.find(_id: id).first
         end
       end
     end
