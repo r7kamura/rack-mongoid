@@ -9,7 +9,7 @@ module Rack
         end
 
         def response_body
-          attributes = given_attributes.merge(_id: Moped::BSON::ObjectId.new)
+          attributes = given_attributes.merge(_id: BSON::ObjectId.new.to_s)
           connection.insert(attributes)
           attributes.to_json
         end

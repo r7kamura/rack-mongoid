@@ -12,3 +12,6 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.include RSpec::JsonMatcher
 end
+
+# Fix for awesome-print
+Moped::BSON = BSON

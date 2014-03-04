@@ -70,7 +70,7 @@ describe Rack::MongoidAdapter do
 
     context "when resource is not found" do
       let(:id) do
-        Moped::BSON::ObjectId.new.to_s
+        BSON::ObjectId.new.to_s
       end
 
       it "returns 404" do
@@ -104,6 +104,27 @@ describe Rack::MongoidAdapter do
       it "returns 201 with a newly-created resource" do
         should == 201
         response.body.should be_json_as(params[:attributes].merge(_id: String))
+      end
+    end
+  end
+
+  describe "PUT /:resource_type/:id" do
+    before do
+      params[:attributes] = { name: "test" }
+    end
+
+    let(:method) do
+      :put
+    end
+
+    let(:path) do
+      "/#{resource_type}/#{id}"
+    end
+
+    context "with valid condition" do
+      it "returns 204" do
+        should == 204
+        response.body.should be_empty
       end
     end
   end

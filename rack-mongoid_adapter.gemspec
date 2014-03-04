@@ -16,8 +16,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "mem"
-  spec.add_dependency "mongoid"
+  spec.add_dependency "bson_ext", ">= 1.5.1"
+  spec.add_dependency "mem", ">= 0.0.5"
+  spec.add_dependency "mongoid", ">= 4.0.0.alpha2"
   spec.add_dependency "rack-multiplexer", ">= 0.0.6"
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "pry", "0.9.12.6"
