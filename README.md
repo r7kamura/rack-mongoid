@@ -15,3 +15,13 @@ run Rack::MongoidAdapter.new
 | Create  | POST   | /foobar     | db.foobar.insert(params)                |
 | Update  | PUT    | /foobar/:id | db.foobar.update(_id: id, $set: params) |
 | Destroy | DELETE | /foobar/:id | db.foobar.remove(_id: id)               |
+
+## Development
+```
+# setup
+bundle install
+mongod --fork
+
+# testing
+bundle exec rspec
+```
