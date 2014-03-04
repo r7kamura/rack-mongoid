@@ -29,7 +29,7 @@ module Rack
         end
 
         def response_body
-          ["OK"]
+          raise NotImplementedError
         end
 
         def request
