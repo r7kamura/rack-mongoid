@@ -8,8 +8,10 @@ run Rack::MongoidAdapter.new
 ```
 
 ## API
-* GET /:resource_type
-* GET /:resource_type/:id
-* POST /:resource_type
-* PUT /:resource_type/:id
-* DELETE /:resource_type/:id
+| Verb   | Path        | MongoDB                                 |
+| ---    | ---         | ---                                     |
+| GET    | /foobar     | db.foobar.find                          |
+| GET    | /foobar/:id | db.foobar.find(_id: id)                 |
+| POST   | /foobar     | db.foobar.insert(params)                |
+| PUT    | /foobar/:id | db.foobar.update(_id: id, $set: params) |
+| DELETE | /foobar/:id | db.foobar.remove(_id: id)               |
