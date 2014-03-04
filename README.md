@@ -7,6 +7,11 @@ Provides RESTful interface for MongoDB as a rack middleware.
 run Rack::MongoidAdapter.new
 ```
 
+```sh
+mongod --fork
+rackup
+```
+
 ## API
 | Name    | Verb   | Path        | MongoDB                                 |
 | ---     | ---    | ---         | ---                                     |
