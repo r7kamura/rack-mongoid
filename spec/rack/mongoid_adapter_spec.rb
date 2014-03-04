@@ -81,4 +81,25 @@ describe Rack::MongoidAdapter do
       end
     end
   end
+
+  describe "POST /:resource_type" do
+    before do
+      params[:attributes] = { name: "test" }
+    end
+
+    let(:method) do
+      :post
+    end
+
+    let(:path) do
+      "/#{resource_type}"
+    end
+
+    context "with valid condition" do
+      it "returns 201 with a newly-created resource" do
+        should == 201
+        response.body.should be_json_as(params[:attributes].merge(_id: String))
+      end
+    end
+  end
 end

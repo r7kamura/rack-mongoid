@@ -51,6 +51,10 @@ module Rack
         def connection
           ::Mongoid.default_session[resource_type]
         end
+
+        def params
+          request.params
+        end
       end
     end
   end
