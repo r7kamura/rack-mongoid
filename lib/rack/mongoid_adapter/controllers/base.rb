@@ -55,6 +55,10 @@ module Rack
         def params
           request.params
         end
+
+        def given_attributes
+          params["attributes"]
+        end
       end
     end
   end
