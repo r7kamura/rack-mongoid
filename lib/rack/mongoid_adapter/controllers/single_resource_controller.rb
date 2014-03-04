@@ -5,7 +5,7 @@ module Rack
         private
 
         def id
-          request.params["id"]
+          Moped::BSON::ObjectId.from_string(request.params["id"])
         end
 
         def find_resource

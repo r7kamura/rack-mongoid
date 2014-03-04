@@ -29,11 +29,16 @@ describe Rack::MongoidAdapter do
   end
 
   let(:id) do
-    "dummy"
+    resource["_id"]
   end
 
   let(:resource_type) do
     "recipes"
+  end
+
+  let(:resource) do
+    post "/#{resource_type}", { attributes: { name: "test" } }, env
+    JSON.parse(last_response.body)
   end
 
   describe "GET /:resource_type" do
@@ -64,6 +69,10 @@ describe Rack::MongoidAdapter do
     end
 
     context "when resource is not found" do
+      let(:id) do
+        Moped::BSON::ObjectId.new.to_s
+      end
+
       it "returns 404" do
         should == 404
         response.body.should be_json
@@ -71,13 +80,9 @@ describe Rack::MongoidAdapter do
     end
 
     context "with valid condition" do
-      before do
-        pending "Not implemented yet"
-      end
-
       it "returns 200 with a resource" do
         should == 200
-        response.body.should be_json_as(_id: id)
+        response.body.should be_json_as(resource)
       end
     end
   end
