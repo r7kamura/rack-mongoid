@@ -17,7 +17,7 @@ run Rack::MongoidAdapter.new
 | Destroy | DELETE | /foobar/:id | db.foobar.remove(_id: id)               |
 
 ## Development
-```
+```sh
 # setup
 bundle install
 mongod --fork
