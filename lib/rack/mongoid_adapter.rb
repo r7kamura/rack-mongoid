@@ -1,5 +1,6 @@
 require "mem"
 require "mongoid"
+require "rack"
 require "rack-multiplexer"
 require "rack/mongoid_adapter/controllers/base"
 require "rack/mongoid_adapter/controllers/single_resource_controller"
