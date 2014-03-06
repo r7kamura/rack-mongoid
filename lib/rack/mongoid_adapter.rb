@@ -13,6 +13,14 @@ require "rack/mongoid_adapter/version"
 
 module Rack
   class MongoidAdapter
+    def self.call(env)
+      instance.call(env)
+    end
+
+    def self.instance
+      @instance ||= new
+    end
+
     def initialize(app = nil)
       @app = app
     end
