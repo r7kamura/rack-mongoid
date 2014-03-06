@@ -13,12 +13,23 @@ require "rack/mongoid_adapter/version"
 
 module Rack
   class MongoidAdapter
-    def self.call(env)
-      instance.call(env)
-    end
+    DEFAULT_MONGOID_CONFIGURATION_PATH = "config/mongoid.yml"
 
-    def self.instance
-      @instance ||= new
+    class << self
+      def call(env)
+        configure_mongoid_unless_configured
+        instance.call(env)
+      end
+
+      private
+
+      def instance
+        @instance ||= new
+      end
+
+      def configure_mongoid_unless_configured
+        Mongoid.load!(DEFAULT_MONGOID_CONFIGURATION_PATH) unless Mongoid.configured?
+      end
     end
 
     def initialize(app = nil)
