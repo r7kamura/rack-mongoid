@@ -23,13 +23,6 @@ $ git push heroku master
 ### Code
 ```yaml
 # config/mongoid.yml
-development:
-  sessions:
-    default:
-      database: default
-      hosts:
-        - localhost:27017
-
 production:
   sessions:
     default:
