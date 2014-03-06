@@ -1,19 +1,10 @@
 # Rack::MongoidAdapter
 Provides RESTful interface for MongoDB as a rack middleware.
 
-## Mappings
-| HTTP               | MongoDB                                                       |
-| ---                | ---                                                           |
-| GET    /foobar     | db.foobar.find                                                |
-| GET    /foobar/:id | db.foobar.find(_id: id)                                       |
-| POST   /foobar     | db.foobar.insert(request.params["attributes"])                |
-| PUT    /foobar/:id | db.foobar.update(_id: id, $set: request.params["attributes"]) |
-| DELETE /foobar/:id | db.foobar.remove(_id: id)                                     |
-
 ## Usage
 Here is the simplest example for Heroku with MongoLab plugin.
 
-### Implementation
+### Operation
 ```
 # settings
 $ mkdir config
