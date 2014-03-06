@@ -25,7 +25,7 @@ module Rack
         end
 
         def response_header
-          {}
+          { "Content-Type" => "application/json" }
         end
 
         def response_body
