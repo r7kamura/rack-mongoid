@@ -2,7 +2,8 @@
 Provides RESTful interface for MongoDB as a rack middleware.
 
 ## Usage
-Here is the simplest example for Heroku with MongoLab plugin.
+Here is the simplest example for Heroku with MongoLab plugin.  
+You can try this example via [r7kamura/rack-mongoid_adapter-example](https://github.com/r7kamura/rack-mongoid_adapter-example).
 
 ### Operation
 ```
