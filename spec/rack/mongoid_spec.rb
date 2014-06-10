@@ -43,7 +43,7 @@ describe Rack::Mongoid do
 
   let(:request_body) do
     case method
-    when "POST", "PUT"
+    when "POST", "PATCH"
       params.to_json
     else
       params
@@ -124,13 +124,13 @@ describe Rack::Mongoid do
     end
   end
 
-  describe "PUT /:resource_name/:id" do
+  describe "PATCH /:resource_name/:id" do
     before do
       params[:name] = "test"
     end
 
     let(:method) do
-      "PUT"
+      "PATCH"
     end
 
     let(:path) do

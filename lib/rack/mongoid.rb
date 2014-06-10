@@ -47,7 +47,7 @@ module Rack
         get "/:resource_name", Controllers::IndexController
         get "/:resource_name/:id", Controllers::ShowController
         post "/:resource_name", Controllers::CreateController
-        put "/:resource_name/:id", Controllers::UpdateController
+        patch "/:resource_name/:id", Controllers::UpdateController
         delete "/:resource_name/:id", Controllers::DestroyController
       end
     end

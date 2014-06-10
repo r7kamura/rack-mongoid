@@ -1,3 +1,6 @@
+## 0.2.0
+* Change request method: PUT -> PATCH
+
 ## 0.1.1
 * Fix Mongoid const name resolution
 
