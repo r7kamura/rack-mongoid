@@ -5,7 +5,7 @@ module Rack
         private
 
         def response_body
-          connection.find.to_a.to_json
+          JSON.pretty_generate(connection.find.to_a, pretty: true) + "\n"
         end
       end
     end

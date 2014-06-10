@@ -14,7 +14,7 @@ module Rack
 
         def response_body
           if resource
-            resource.to_json
+            JSON.pretty_generate(resource, pretty: true) + "\n"
           else
             response_body_for_not_found
           end
