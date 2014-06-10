@@ -3,7 +3,7 @@ Provides RESTful interface for MongoDB as a rack middleware.
 
 ## Usage
 Here is the simplest example for Heroku with MongoLab plugin.  
-You can try this example via [r7kamura/rack-mongoid_adapter-example](https://github.com/r7kamura/rack-mongoid_adapter-example).
+You can try this example via [r7kamura/rack-mongoid-example](https://github.com/r7kamura/rack-mongoid-example).
 
 ### Operation
 ```
@@ -32,14 +32,14 @@ production:
 
 ```ruby
 # config.ru
-require "rack/mongoid_adapter"
+require "rack/mongoid"
 run Rack::Mongoid
 ```
 
 ```ruby
 # Gemfile
 source "https://rubygems.org"
-gem "rack-mongoid_adapter"
+gem "rack-mongoid"
 ```
 
 ### POST /{resource_name} - Create a new resource

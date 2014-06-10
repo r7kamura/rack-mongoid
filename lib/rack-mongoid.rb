@@ -1,1 +1,1 @@
-require "rack/mongoid_adapter"
+require "rack/mongoid"

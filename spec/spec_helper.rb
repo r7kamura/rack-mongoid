@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "rack/mongoid_adapter"
+require "rack/mongoid"
 require "rack/test"
 require "rspec/json_matcher"
 

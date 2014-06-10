@@ -1,14 +1,14 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "rack/mongoid_adapter/version"
+require "rack/mongoid/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "rack-mongoid_adapter"
+  spec.name          = "rack-mongoid"
   spec.version       = Rack::Mongoid::VERSION
   spec.authors       = ["Ryo Nakamura"]
   spec.email         = ["r7kamura@gmail.com"]
   spec.summary       = "A rack application working as an adapter for Mongoid"
-  spec.homepage      = "https://github.com/r7kamura/rack-mongoid_adapter"
+  spec.homepage      = "https://github.com/r7kamura/rack-mongoid"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
