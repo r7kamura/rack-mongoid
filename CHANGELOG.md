@@ -1,3 +1,6 @@
+## 0.1.1
+* Fix Mongoid const name resolution
+
 ## 0.1.0
 * Rename from rack-mongoid_adapter to rack-mongoid
 

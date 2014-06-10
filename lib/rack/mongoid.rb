@@ -28,7 +28,7 @@ module Rack
       end
 
       def configure_mongoid_unless_configured
-        Mongoid.load!(DEFAULT_MONGOID_CONFIGURATION_PATH) unless Mongoid.configured?
+        ::Mongoid.load!(DEFAULT_MONGOID_CONFIGURATION_PATH) unless ::Mongoid.configured?
       end
     end
 
