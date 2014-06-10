@@ -1,3 +1,6 @@
+## 0.1.0
+* Rename from rack-mongoid_adapter to rack-mongoid
+
 ## 0.0.3
 * Return prettified JSON response
 
