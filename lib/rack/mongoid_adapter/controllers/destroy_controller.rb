@@ -13,7 +13,7 @@ module Rack
         def response_body
           if resource
             connection.find(_id: id).remove
-            JSON.pretty_generate(resource, pretty: true) + "\n"
+            JSON.pretty_generate(resource) + "\n"
           else
             response_body_for_not_found
           end

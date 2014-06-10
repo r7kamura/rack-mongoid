@@ -11,7 +11,7 @@ module Rack
         def response_body
           attributes = params.merge(_id: BSON::ObjectId.new.to_s)
           connection.insert(attributes)
-          JSON.pretty_generate(attributes, pretty: true) + "\n"
+          JSON.pretty_generate(attributes) + "\n"
         end
       end
     end

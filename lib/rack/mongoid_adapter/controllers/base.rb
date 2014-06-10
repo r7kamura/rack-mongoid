@@ -33,7 +33,7 @@ module Rack
         end
 
         def response_body_for_not_found
-          JSON.pretty_generate(message: "Not found", pretty: true) + "\n"
+          JSON.pretty_generate(message: "Not found") + "\n"
         end
 
         def request

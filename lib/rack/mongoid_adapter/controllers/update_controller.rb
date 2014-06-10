@@ -16,7 +16,7 @@ module Rack
           if resource
             attributes = resource.merge(params)
             connection.find(_id: id).update(attributes)
-            JSON.pretty_generate(attributes, pretty: true) + "\n"
+            JSON.pretty_generate(attributes) + "\n"
           else
             response_body_for_not_found
           end
