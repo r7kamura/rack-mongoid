@@ -2,26 +2,6 @@
 Provides RESTful interface for MongoDB as a rack middleware.
 
 ## Usage
-Here is the simplest example for Heroku with MongoLab plugin.  
-You can try this example via [r7kamura/rack-mongoid-example](https://github.com/r7kamura/rack-mongoid-example).
-
-### Operation
-```
-# settings
-$ mkdir config
-$ vi config/mongoid.yml
-$ vi config.ru
-$ vi Gemfile
-$ bundle install
-$ git init
-$ git add .
-$ git commit -m "Initial commit"
-$ heroku create my-test-app
-$ heroku addons:add mongolab
-$ git push heroku master
-```
-
-### Code
 ```yaml
 # config/mongoid.yml
 production:
