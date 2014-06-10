@@ -41,15 +41,19 @@ describe Rack::MongoidAdapter do
     JSON.parse(last_response.body)
   end
 
+  subject do
+    send method.downcase, path, params, env
+    response.status
+  end
+
   describe "GET /:resource_name" do
     let(:method) do
-      :get
+      "GET"
     end
 
     let(:path) do
       "/#{resource_name}"
     end
-
 
     context "with valid condition" do
       it "returns 200 with an array of resources" do
@@ -61,7 +65,7 @@ describe Rack::MongoidAdapter do
 
   describe "GET /:resource_name/:id" do
     let(:method) do
-      :get
+      "GET"
     end
 
     let(:path) do
@@ -93,7 +97,7 @@ describe Rack::MongoidAdapter do
     end
 
     let(:method) do
-      :post
+      "POST"
     end
 
     let(:path) do
@@ -114,7 +118,7 @@ describe Rack::MongoidAdapter do
     end
 
     let(:method) do
-      :put
+      "PUT"
     end
 
     let(:path) do
@@ -131,7 +135,7 @@ describe Rack::MongoidAdapter do
 
   describe "DELETE /:resource_name/:id" do
     let(:method) do
-      :delete
+      "DELETE"
     end
 
     let(:path) do
