@@ -32,22 +32,22 @@ describe Rack::MongoidAdapter do
     resource["_id"]
   end
 
-  let(:resource_type) do
+  let(:resource_name) do
     "recipes"
   end
 
   let(:resource) do
-    post "/#{resource_type}", { attributes: { name: "test" } }, env
+    post "/#{resource_name}", { attributes: { name: "test" } }, env
     JSON.parse(last_response.body)
   end
 
-  describe "GET /:resource_type" do
+  describe "GET /:resource_name" do
     let(:method) do
       :get
     end
 
     let(:path) do
-      "/#{resource_type}"
+      "/#{resource_name}"
     end
 
 
@@ -59,13 +59,13 @@ describe Rack::MongoidAdapter do
     end
   end
 
-  describe "GET /:resource_type/:id" do
+  describe "GET /:resource_name/:id" do
     let(:method) do
       :get
     end
 
     let(:path) do
-      "/#{resource_type}/#{id}"
+      "/#{resource_name}/#{id}"
     end
 
     context "when resource is not found" do
@@ -87,7 +87,7 @@ describe Rack::MongoidAdapter do
     end
   end
 
-  describe "POST /:resource_type" do
+  describe "POST /:resource_name" do
     before do
       params[:attributes] = { name: "test" }
     end
@@ -97,7 +97,7 @@ describe Rack::MongoidAdapter do
     end
 
     let(:path) do
-      "/#{resource_type}"
+      "/#{resource_name}"
     end
 
     context "with valid condition" do
@@ -108,7 +108,7 @@ describe Rack::MongoidAdapter do
     end
   end
 
-  describe "PUT /:resource_type/:id" do
+  describe "PUT /:resource_name/:id" do
     before do
       params[:attributes] = { name: "test" }
     end
@@ -118,7 +118,7 @@ describe Rack::MongoidAdapter do
     end
 
     let(:path) do
-      "/#{resource_type}/#{id}"
+      "/#{resource_name}/#{id}"
     end
 
     context "with valid condition" do
@@ -129,13 +129,13 @@ describe Rack::MongoidAdapter do
     end
   end
 
-  describe "DELETE /:resource_type/:id" do
+  describe "DELETE /:resource_name/:id" do
     let(:method) do
       :delete
     end
 
     let(:path) do
-      "/#{resource_type}/#{id}"
+      "/#{resource_name}/#{id}"
     end
 
     context "with valid condition" do

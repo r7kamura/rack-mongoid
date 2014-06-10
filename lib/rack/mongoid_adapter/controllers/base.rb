@@ -44,12 +44,12 @@ module Rack
           @response ||= Rack::Response.new([response_body], response_status, response_header)
         end
 
-        def resource_type
-          request.params["resource_type"]
+        def resource_name
+          request.params["resource_name"]
         end
 
         def connection
-          ::Mongoid.default_session[resource_type]
+          ::Mongoid.default_session[resource_name]
         end
 
         def params
