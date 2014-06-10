@@ -37,12 +37,21 @@ describe Rack::MongoidAdapter do
   end
 
   let(:resource) do
-    post "/#{resource_name}", { attributes: { name: "test" } }, env
+    post "/#{resource_name}", { attributes: { name: "test" } }.to_json, env
     JSON.parse(last_response.body)
   end
 
+  let(:request_body) do
+    case method
+    when "POST", "PUT"
+      params.to_json
+    else
+      params
+    end
+  end
+
   subject do
-    send method.downcase, path, params, env
+    send method.downcase, path, request_body, env
     response.status
   end
 
@@ -107,7 +116,10 @@ describe Rack::MongoidAdapter do
     context "with valid condition" do
       it "returns 201 with a newly-created resource" do
         should == 201
-        response.body.should be_json_as(params[:attributes].merge(_id: String))
+        response.body.should be_json_as(
+          _id: String,
+          name: "test"
+        )
       end
     end
   end

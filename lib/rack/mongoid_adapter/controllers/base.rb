@@ -53,7 +53,18 @@ module Rack
         end
 
         def params
-          request.params
+          case
+          when request.request_method == "GET"
+            request.GET
+          when !request_body.empty?
+            JSON.parse(request_body)
+          else
+            {}
+          end
+        end
+
+        def request_body
+          @request_body ||= request.body.read.tap { request.body.rewind }
         end
 
         def given_attributes
