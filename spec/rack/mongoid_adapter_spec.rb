@@ -138,9 +138,12 @@ describe Rack::MongoidAdapter do
     end
 
     context "with valid condition" do
-      it "returns 204" do
-        should == 204
-        response.body.should be_empty
+      it "returns 200" do
+        should == 200
+        response.body.should be_json_as(
+          _id: String,
+          name: "test",
+        )
       end
     end
   end
@@ -155,9 +158,12 @@ describe Rack::MongoidAdapter do
     end
 
     context "with valid condition" do
-      it "returns 204" do
-        should == 204
-        response.body.should be_empty
+      it "returns 200" do
+        should == 200
+        response.body.should be_json_as(
+          _id: String,
+          name: "test",
+        )
       end
     end
   end

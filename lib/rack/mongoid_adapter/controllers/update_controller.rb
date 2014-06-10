@@ -6,7 +6,7 @@ module Rack
 
         def response_status
           if resource
-            204
+            200
           else
             404
           end
@@ -16,7 +16,7 @@ module Rack
           if resource
             attributes = resource.merge(params)
             connection.find(_id: id).update(attributes)
-            ""
+            attributes.to_json
           else
             response_body_for_not_found
           end

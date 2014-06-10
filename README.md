@@ -81,17 +81,21 @@ Connection: keep-alive
 ### PUT /{resource_name}/{id} - Update the entry
 ```
 $ curl http://my-test-app.herokuapp.com/entries/53188c5b3536340002000000 -X PUT -d "attributes[foo]=baz" -i
-HTTP/1.1 204 No Content
+HTTP/1.1 200 OK
 Date: Thu, 06 Mar 2014 14:59:04 GMT
 Server: WEBrick/1.3.1 (Ruby/2.0.0/2014-02-24)
 Connection: keep-alive
+
+{"foo":"baz","_id":"53188c5b3536340002000000"}
 ```
 
 ### DELETE /{resource_name}/{id} - Delete the entry
 ```
 $ curl http://my-test-app.herokuapp.com/entries/53188c5b3536340002000000 -X DELETE -i
-HTTP/1.1 204 No Content
+HTTP/1.1 200 OK
 Date: Thu, 06 Mar 2014 14:59:50 GMT
 Server: WEBrick/1.3.1 (Ruby/2.0.0/2014-02-24)
 Connection: keep-alive
+
+{"foo":"bar","_id":"53188c5b3536340002000000"}
 ```
