@@ -1,5 +1,5 @@
 module Rack
-  class MongoidAdapter
+  class Mongoid
     VERSION = "0.0.3"
   end
 end

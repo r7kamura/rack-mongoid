@@ -1,4 +1,4 @@
-# Rack::MongoidAdapter
+# Rack::Mongoid
 Provides RESTful interface for MongoDB as a rack middleware.
 
 ## Usage
@@ -33,7 +33,7 @@ production:
 ```ruby
 # config.ru
 require "rack/mongoid_adapter"
-run Rack::MongoidAdapter
+run Rack::Mongoid
 ```
 
 ```ruby

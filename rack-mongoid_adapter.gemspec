@@ -4,7 +4,7 @@ require "rack/mongoid_adapter/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "rack-mongoid_adapter"
-  spec.version       = Rack::MongoidAdapter::VERSION
+  spec.version       = Rack::Mongoid::VERSION
   spec.authors       = ["Ryo Nakamura"]
   spec.email         = ["r7kamura@gmail.com"]
   spec.summary       = "A rack application working as an adapter for Mongoid"

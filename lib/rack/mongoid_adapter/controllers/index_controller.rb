@@ -1,5 +1,5 @@
 module Rack
-  class MongoidAdapter
+  class Mongoid
     module Controllers
       class IndexController < Base
         private

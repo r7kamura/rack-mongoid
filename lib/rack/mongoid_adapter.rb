@@ -12,7 +12,7 @@ require "rack/mongoid_adapter/controllers/update_controller"
 require "rack/mongoid_adapter/version"
 
 module Rack
-  class MongoidAdapter
+  class Mongoid
     DEFAULT_MONGOID_CONFIGURATION_PATH = "config/mongoid.yml"
 
     class << self
