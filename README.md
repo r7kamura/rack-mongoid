@@ -68,7 +68,7 @@ Connection: keep-alive
 
 ### PATCH /{resource_name}/{id} - Update the resource
 ```sh
-$ curl http://my-example-app.herokuapp.com/users/5397369e3061380002010000 -X PUT -d '{"name":"bob"}' -H "Content-Type: application/json" -i
+$ curl http://my-example-app.herokuapp.com/users/5397369e3061380002010000 -X PATCH -d '{"name":"bob"}' -H "Content-Type: application/json" -i
 HTTP/1.1 200 OK
 Content-Type: application/json
 Date: Tue, 10 Jun 2014 16:50:15 GMT
