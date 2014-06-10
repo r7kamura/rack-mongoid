@@ -14,7 +14,7 @@ module Rack
 
         def response_body
           if resource
-            attributes = resource.merge(given_attributes)
+            attributes = resource.merge(params)
             connection.find(_id: id).update(attributes)
             ""
           else

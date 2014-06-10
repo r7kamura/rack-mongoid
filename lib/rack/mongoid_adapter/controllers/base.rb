@@ -66,10 +66,6 @@ module Rack
         def request_body
           @request_body ||= request.body.read.tap { request.body.rewind }
         end
-
-        def given_attributes
-          params["attributes"]
-        end
       end
     end
   end

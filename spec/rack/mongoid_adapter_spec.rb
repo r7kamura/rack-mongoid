@@ -37,7 +37,7 @@ describe Rack::MongoidAdapter do
   end
 
   let(:resource) do
-    post "/#{resource_name}", { attributes: { name: "test" } }.to_json, env
+    post "/#{resource_name}", { name: "test" }.to_json, env
     JSON.parse(last_response.body)
   end
 
@@ -102,7 +102,7 @@ describe Rack::MongoidAdapter do
 
   describe "POST /:resource_name" do
     before do
-      params[:attributes] = { name: "test" }
+      params[:name] = "test"
     end
 
     let(:method) do
@@ -126,7 +126,7 @@ describe Rack::MongoidAdapter do
 
   describe "PUT /:resource_name/:id" do
     before do
-      params[:attributes] = { name: "test" }
+      params[:name] = "test"
     end
 
     let(:method) do
