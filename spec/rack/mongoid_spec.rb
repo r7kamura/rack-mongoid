@@ -1,8 +1,6 @@
 require "spec_helper"
 
 describe Rack::Mongoid do
-  include Rack::Test::Methods
-
   subject do
     send method, path, params, env
     response.status

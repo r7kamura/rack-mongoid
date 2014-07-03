@@ -9,6 +9,9 @@ require "rack/mongoid/controllers/destroy_controller"
 require "rack/mongoid/controllers/index_controller"
 require "rack/mongoid/controllers/show_controller"
 require "rack/mongoid/controllers/update_controller"
+require "rack/mongoid/timestamps/base"
+require "rack/mongoid/timestamps/created"
+require "rack/mongoid/timestamps/updated"
 require "rack/mongoid/version"
 
 module Rack
